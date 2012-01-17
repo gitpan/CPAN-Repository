@@ -3,7 +3,7 @@ BEGIN {
   $CPAN::Repository::AUTHORITY = 'cpan:GETTY';
 }
 {
-  $CPAN::Repository::VERSION = '0.002';
+  $CPAN::Repository::VERSION = '0.003';
 }
 # ABSTRACT: API to access a directory which can be served as CPAN repository
 
@@ -163,7 +163,7 @@ CPAN::Repository - API to access a directory which can be served as CPAN reposit
 
 =head1 VERSION
 
-version 0.002
+version 0.003
 
 =head1 SYNOPSIS
 
