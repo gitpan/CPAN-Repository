@@ -26,13 +26,13 @@ my %WriteMakefileArgs = (
     "DateTime" => "0.72",
     "Dist::Data" => "0.002",
     "File::Path" => "2.08",
+    "File::Spec::Functions" => "3.33",
     "IO::File" => "1.25",
     "IO::Zlib" => "1.10",
     "Moo" => "0.009013",
-    "PathTools" => "3.33",
     "utf8::all" => 0
   },
-  "VERSION" => "0.001",
+  "VERSION" => "0.002",
   "test" => {
     "TESTS" => "t/*.t"
   }

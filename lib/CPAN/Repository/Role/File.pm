@@ -3,7 +3,7 @@ BEGIN {
   $CPAN::Repository::Role::File::AUTHORITY = 'cpan:GETTY';
 }
 {
-  $CPAN::Repository::Role::File::VERSION = '0.001';
+  $CPAN::Repository::Role::File::VERSION = '0.002';
 }
 # ABSTRACT: Adding functionality to compress the given file also
 
@@ -102,7 +102,7 @@ CPAN::Repository::Role::File - Adding functionality to compress the given file a
 
 =head1 VERSION
 
-version 0.001
+version 0.002
 
 =head1 AUTHOR
 
