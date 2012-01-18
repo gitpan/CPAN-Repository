@@ -3,9 +3,9 @@ BEGIN {
   $CPAN::Repository::Role::File::AUTHORITY = 'cpan:GETTY';
 }
 {
-  $CPAN::Repository::Role::File::VERSION = '0.003';
+  $CPAN::Repository::Role::File::VERSION = '0.004';
 }
-# ABSTRACT: Adding functionality to compress the given file also
+# ABSTRACT: Role for file functions
 
 use Moo::Role;
 
@@ -93,16 +93,35 @@ sub mkdir {
 }
 
 1;
+
+
 __END__
 =pod
 
 =head1 NAME
 
-CPAN::Repository::Role::File - Adding functionality to compress the given file also
+CPAN::Repository::Role::File - Role for file functions
 
 =head1 VERSION
 
-version 0.003
+version 0.004
+
+=encoding utf8
+
+=head1 SUPPORT
+
+IRC
+
+  Join #duckduckgo on irc.freenode.net. Highlight Getty for fast reaction :).
+
+Repository
+
+  http://github.com/Getty/p5-cpan-repository
+  Pull request and additional contributors are welcome
+
+Issue Tracker
+
+  http://github.com/Getty/p5-cpan-repository/issues
 
 =head1 AUTHOR
 

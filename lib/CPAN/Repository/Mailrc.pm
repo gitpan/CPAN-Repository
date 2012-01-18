@@ -3,7 +3,7 @@ BEGIN {
   $CPAN::Repository::Mailrc::AUTHORITY = 'cpan:GETTY';
 }
 {
-  $CPAN::Repository::Mailrc::VERSION = '0.003';
+  $CPAN::Repository::Mailrc::VERSION = '0.004';
 }
 # ABSTRACT: 01mailrc
 
@@ -50,6 +50,9 @@ sub generate_content {
 }
 
 1;
+
+
+
 __END__
 =pod
 
@@ -59,7 +62,36 @@ CPAN::Repository::Mailrc - 01mailrc
 
 =head1 VERSION
 
-version 0.003
+version 0.004
+
+=head1 SYNOPSIS
+
+  use CPAN::Repository::Mailrc;
+
+  my $mailrc = CPAN::Repository::Mailrc->new({
+    repository_root => $fullpath_to_root,
+  });
+
+=encoding utf8
+
+=head1 SEE ALSO
+
+L<CPAN::Repository>
+
+=head1 SUPPORT
+
+IRC
+
+  Join #duckduckgo on irc.freenode.net. Highlight Getty for fast reaction :).
+
+Repository
+
+  http://github.com/Getty/p5-cpan-repository
+  Pull request and additional contributors are welcome
+
+Issue Tracker
+
+  http://github.com/Getty/p5-cpan-repository/issues
 
 =head1 AUTHOR
 

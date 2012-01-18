@@ -3,7 +3,7 @@ BEGIN {
   $CPAN::Repository::AUTHORITY = 'cpan:GETTY';
 }
 {
-  $CPAN::Repository::VERSION = '0.003';
+  $CPAN::Repository::VERSION = '0.004';
 }
 # ABSTRACT: API to access a directory which can be served as CPAN repository
 
@@ -132,6 +132,8 @@ sub modules {
 	return \%modules;
 }
 
+sub timestamp { shift->packages->timestamp }
+
 #
 # Utilities
 #
@@ -163,7 +165,7 @@ CPAN::Repository - API to access a directory which can be served as CPAN reposit
 
 =head1 VERSION
 
-version 0.003
+version 0.004
 
 =head1 SYNOPSIS
 
@@ -177,7 +179,14 @@ version 0.003
   $repo->initialize unless $repo->is_initialized;
   
   $repo->add_author_distribution('AUTHOR','My-Distribution-0.001.tar.gz');
-  $repo->add_alias('AUTHOR','The Author <author@company.org>');
+  $repo->set_alias('AUTHOR','The Author <author@company.org>');
+  
+  my %modules = %{$repo->modules};
+  
+  my $fullpath_to_authordir = $self->authordir('SOMEONE');
+ 
+  my $packages = $self->packages; # gives back a CPAN::Repository::Packages
+  my $mailrc = $self->mailrc; # gives back a CPAN::Repository::Mailrc
 
 =head1 DESCRIPTION
 
@@ -185,6 +194,12 @@ This module is made for representing a directory which can be used as own CPAN f
 used to manage a mirror of real CPAN your own way. Some code parts are taken from CPAN::Dark of B<CHROMATIC> and L<CPAN::Mini::Inject> of B<MITHALDU>.
 
 =encoding utf8
+
+=head1 SEE ALSO
+
+L<CPAN::Repository::Packages>
+
+L<CPAN::Repository::Mailrc>
 
 =head1 SUPPORT
 
@@ -200,8 +215,6 @@ Repository
 Issue Tracker
 
   http://github.com/Getty/p5-cpan-repository/issues
-
-1;
 
 =head1 AUTHOR
 

@@ -24,6 +24,8 @@ my %WriteMakefileArgs = (
   "NAME" => "CPAN::Repository",
   "PREREQ_PM" => {
     "DateTime" => "0.72",
+    "DateTime::Format::Epoch" => "0.13",
+    "DateTime::Format::RFC3339" => 0,
     "Dist::Data" => "0.002",
     "File::Path" => "2.08",
     "File::Spec::Functions" => "3.33",
@@ -32,7 +34,7 @@ my %WriteMakefileArgs = (
     "Moo" => "0.009013",
     "utf8::all" => 0
   },
-  "VERSION" => "0.003",
+  "VERSION" => "0.004",
   "test" => {
     "TESTS" => "t/*.t"
   }

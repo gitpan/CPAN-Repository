@@ -16,6 +16,8 @@ meta-spec:
 name: CPAN-Repository
 requires:
   DateTime: 0.72
+  DateTime::Format::Epoch: 0.13
+  DateTime::Format::RFC3339: 0
   Dist::Data: 0.002
   File::Path: 2.08
   File::Spec::Functions: 3.33
@@ -26,7 +28,7 @@ requires:
 resources:
   homepage: https://github.com/Getty/p5-cpan-repository
   repository: https://github.com/Getty/p5-cpan-repository.git
-version: 0.003
+version: 0.004
 x_Dist_Zilla:
   plugins:
     -
