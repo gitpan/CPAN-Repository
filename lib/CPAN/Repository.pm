@@ -3,7 +3,7 @@ BEGIN {
   $CPAN::Repository::AUTHORITY = 'cpan:GETTY';
 }
 {
-  $CPAN::Repository::VERSION = '0.004';
+  $CPAN::Repository::VERSION = '0.005';
 }
 # ABSTRACT: API to access a directory which can be served as CPAN repository
 
@@ -97,6 +97,7 @@ sub add_author_distribution {
 	copy($distribution_filename,catfile( $target_dir, $filename ));
 	$self->packages->add_distribution($author_path_filename)->save;
 	$self->mailrc->set_alias($author)->save unless defined $self->mailrc->aliases->{$author};
+	return catfile( $self->authorbase_path_parts, $self->author_path_parts($author), $filename );
 }
 
 sub set_alias {
@@ -165,7 +166,7 @@ CPAN::Repository - API to access a directory which can be served as CPAN reposit
 
 =head1 VERSION
 
-version 0.004
+version 0.005
 
 =head1 SYNOPSIS
 

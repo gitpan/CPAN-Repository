@@ -3,7 +3,7 @@ BEGIN {
   $CPAN::Repository::Packages::AUTHORITY = 'cpan:GETTY';
 }
 {
-  $CPAN::Repository::Packages::VERSION = '0.004';
+  $CPAN::Repository::Packages::VERSION = '0.005';
 }
 # ABSTRACT: 02packages
 
@@ -137,7 +137,7 @@ CPAN::Repository::Packages - 02packages
 
 =head1 VERSION
 
-version 0.004
+version 0.005
 
 =head1 SYNOPSIS
 

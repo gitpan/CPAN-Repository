@@ -3,7 +3,7 @@ BEGIN {
   $CPAN::Repository::Mailrc::AUTHORITY = 'cpan:GETTY';
 }
 {
-  $CPAN::Repository::Mailrc::VERSION = '0.004';
+  $CPAN::Repository::Mailrc::VERSION = '0.005';
 }
 # ABSTRACT: 01mailrc
 
@@ -62,7 +62,7 @@ CPAN::Repository::Mailrc - 01mailrc
 
 =head1 VERSION
 
-version 0.004
+version 0.005
 
 =head1 SYNOPSIS
 

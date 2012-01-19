@@ -3,7 +3,7 @@ BEGIN {
   $CPAN::Repository::Role::File::AUTHORITY = 'cpan:GETTY';
 }
 {
-  $CPAN::Repository::Role::File::VERSION = '0.004';
+  $CPAN::Repository::Role::File::VERSION = '0.005';
 }
 # ABSTRACT: Role for file functions
 
@@ -104,7 +104,7 @@ CPAN::Repository::Role::File - Role for file functions
 
 =head1 VERSION
 
-version 0.004
+version 0.005
 
 =encoding utf8
 
