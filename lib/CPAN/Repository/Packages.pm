@@ -3,7 +3,7 @@ BEGIN {
   $CPAN::Repository::Packages::AUTHORITY = 'cpan:GETTY';
 }
 {
-  $CPAN::Repository::Packages::VERSION = '0.006';
+  $CPAN::Repository::Packages::VERSION = '0.007';
 }
 # ABSTRACT: 02packages
 
@@ -114,8 +114,6 @@ sub generate_content {
 	$content .= $self->generate_header_line('Line-Count:',scalar keys %{$self->modules});
 	$content .= $self->generate_header_line('Last-Updated:',DateTime->now->strftime('%a, %e %b %y %T %Z'));
 	$content .= "\n";
-	use Data::Dumper;
-	print Dumper $self->modules;
 	for (keys %{$self->modules}) {
 		$content .= sprintf("%-60s %-20s %s\n",$_,$self->modules->{$_}->[0] ? $self->modules->{$_}->[0] : 'undef',$self->modules->{$_}->[1]);
 	}
@@ -139,7 +137,7 @@ CPAN::Repository::Packages - 02packages
 
 =head1 VERSION
 
-version 0.006
+version 0.007
 
 =head1 SYNOPSIS
 
