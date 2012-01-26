@@ -34,7 +34,7 @@ my %WriteMakefileArgs = (
     "Moo" => "0.009013",
     "utf8::all" => 0
   },
-  "VERSION" => "0.005",
+  "VERSION" => "0.006",
   "test" => {
     "TESTS" => "t/*.t"
   }
