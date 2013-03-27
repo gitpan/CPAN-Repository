@@ -3,7 +3,7 @@ BEGIN {
   $CPAN::Repository::Role::File::AUTHORITY = 'cpan:GETTY';
 }
 {
-  $CPAN::Repository::Role::File::VERSION = '0.007';
+  $CPAN::Repository::Role::File::VERSION = '0.008';
 }
 # ABSTRACT: Role for file functions
 
@@ -13,8 +13,6 @@ use File::Path qw( make_path );
 use File::Spec::Functions ':ALL';
 use IO::Zlib;
 use IO::File;
-# makes 00-load.t fail on test in dev
-#use utf8::all;
 
 requires qw( file_parts generate_content );
 
@@ -104,7 +102,7 @@ CPAN::Repository::Role::File - Role for file functions
 
 =head1 VERSION
 
-version 0.007
+version 0.008
 
 =encoding utf8
 

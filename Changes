@@ -1,21 +1,187 @@
-Revision history for CPAN-Repository
+==================================================
+Changes from 1739-06-13 00:00:00 +0000 to present.
+==================================================
 
-0.007     2012-01-26 01:32:04 Europe/Berlin
+------------------------------------------
+version 0.008 at 2013-03-27 03:45:29 +0000
+------------------------------------------
 
-0.006     2012-01-26 01:07:48 Europe/Berlin
-	Fixed handling of undef versions in generation of packages
+  Change: 751bb68a9cc2167f37f9e7ba3e122732cbcfec34
+  Author: Torsten Raudssus <torsten@raudss.us>
+  Date : 2013-02-19 05:09:09 +0000
 
-0.005     2012-01-19 18:26:15 Europe/Berlin
-	Return pathname in repo on add_author_distribution
+    Added possibility for custom author path, tuned tests a bit 
 
-0.004     2012-01-18 01:00:55 Europe/Berlin
-	Fixed documentation, added generation of 02STAMP
+  Change: 826b2b1016705a4dd35664ed2d38e1378d4b3377
+  Author: Torsten Raudssus <torsten@raudss.us>
+  Date : 2012-07-09 17:22:08 +0000
 
-0.003     2012-01-17 04:11:41 Europe/Berlin
-	Arghl... another requirement fix
+    A bit more handles on CPAN::Repository, a bit more informational
+    functions 
 
-0.002     2012-01-17 04:10:01 Europe/Berlin
-	Fixed requirements
+  Change: d0fd8a4a28dfc85f2c5d00d7e07484a49bc49ff9
+  Author: Torsten Raudssus <torsten@raudss.us>
+  Date : 2012-07-09 17:09:21 +0000
 
-0.001     2012-01-17 03:48:32 Europe/Berlin
-	First working version
+    Hups, missed generation a bit ;) 
+
+  Change: 817fc4ca199e2ed86904a541aea4d3f25f1fdc42
+  Author: Torsten Raudssus <torsten@raudss.us>
+  Date : 2012-07-09 17:06:57 +0000
+
+    Added 06perms.txt 
+
+  Change: 638fbb234a31dbad87c44dd518b05edbffedf9de
+  Author: Torsten Raudssus <torsten@raudss.us>
+  Date : 2012-07-09 16:29:41 +0000
+
+    Added sorted output to 02packages file 
+
+  Change: 40882f1e46e8a07633387632621ef6958b9989d6
+  Author: Torsten Raudssus <github@raudssus.de>
+  Date : 2012-01-26 01:33:00 +0000
+
+    v0.007 
+
+  Change: 07f6d26a55d513de7cc6a3fa0201086e3885905a
+  Author: Torsten Raudssus <github@raudssus.de>
+  Date : 2012-01-26 01:31:50 +0000
+
+    Damn it, remove debugging before release! 
+
+  Change: fc73dd923155974b0ecbaaa1a392805de467dbf1
+  Author: Torsten Raudssus <github@raudssus.de>
+  Date : 2012-01-26 01:23:36 +0000
+
+    v0.006
+
+    Fixed handling of undef versions in generation of packages 
+
+  Change: 4a55e90e39dee509b9dfc520f187b77a575fa46e
+  Author: Torsten Raudssus <github@raudssus.de>
+  Date : 2012-01-26 01:07:32 +0000
+
+    Fixed handling of undef versions in generation of packages 
+
+  Change: 6805f253673872c2c33d7e7a61049401b5cca191
+  Author: Torsten Raudssus <github@raudssus.de>
+  Date : 2012-01-19 18:27:21 +0000
+
+    v0.005
+
+    Return pathname in repo on add_author_distribution 
+
+  Change: 686c92891b684192140ed705ceb8748600bf87b6
+  Author: Torsten Raudssus <github@raudssus.de>
+  Date : 2012-01-19 18:25:58 +0000
+
+    Return pathname in repo on add_author_distribution 
+
+  Change: 282f22ce49f2842a23a144cef129d58d16aa463c
+  Author: Torsten Raudssus <github@raudssus.de>
+  Date : 2012-01-18 01:01:32 +0000
+
+    v0.004
+
+    Fixed documentation, added generation of 02STAMP 
+
+  Change: 2fcd4dea3741769ccd95fe5c423340bc1d0566f1
+  Author: Torsten Raudssus <github@raudssus.de>
+  Date : 2012-01-18 01:00:34 +0000
+
+    Added timestamp feature, added more pod (thats always good) 
+
+  Change: 222fb80936d073994ae6c0cba3a9a1b0ed509183
+  Author: Torsten Raudssus <github@raudssus.de>
+  Date : 2012-01-17 04:17:02 +0000
+
+    Fixed typo in SYNOPSIS and a stupid 1; at the end of pod 
+
+  Change: 20f044868e11d112bc06a9e6112e239f3b438831
+  Author: Torsten Raudssus <github@raudssus.de>
+  Date : 2012-01-17 04:12:15 +0000
+
+    v0.003
+
+    Arghl... another requirement fix 
+
+  Change: 31a77af4edb34f830ec8be8c68b637f186a56bfa
+  Author: Torsten Raudssus <github@raudssus.de>
+  Date : 2012-01-17 04:11:09 +0000
+
+    And again forgot Changes... arghl^2 
+
+  Change: f6dd17fb84ba3d3b2531e46dbbf73f56513da665
+  Author: Torsten Raudssus <github@raudssus.de>
+  Date : 2012-01-17 04:10:49 +0000
+
+    Arghl.. another requirement fix... 
+
+  Change: d9fcfd51a0ff36f5aa5a98c663f6a4718b0af712
+  Author: Torsten Raudssus <github@raudssus.de>
+  Date : 2012-01-17 04:10:38 +0000
+
+    v0.002
+
+    Fixed requirements 
+
+  Change: 175d5a7e480fb0b1b18d8ba6679e725a3654407d
+  Author: Torsten Raudssus <github@raudssus.de>
+  Date : 2012-01-17 04:08:55 +0000
+
+    Updated changes file 
+
+  Change: 2a3ca1d5ffd28f0f67b87ffdb53957c604c8670d
+  Author: Torsten Raudssus <github@raudssus.de>
+  Date : 2012-01-17 03:52:46 +0000
+
+    Fixing requirements 
+
+  Change: 133b7ed23dba68b6ff2244c31a344131645a6224
+  Author: Torsten Raudssus <github@raudssus.de>
+  Date : 2012-01-17 03:51:54 +0000
+
+    v0.001
+
+    First working version 
+
+  Change: 409bfa2da2cf92ae4c40091908f80c848446642f
+  Author: Torsten Raudssus <github@raudssus.de>
+  Date : 2012-01-17 03:48:20 +0000
+
+    Avoid a Moo problem 
+
+  Change: 7a8ae7b59f831360bd04086e858ca3532581a29b
+  Author: Torsten Raudssus <github@raudssus.de>
+  Date : 2012-01-17 03:15:25 +0000
+
+    added modules function to CPAN::Repository 
+
+  Change: 25dac06b010a618281df78cfb9fc736229590c97
+  Author: Torsten Raudssus <github@raudssus.de>
+  Date : 2012-01-17 02:49:12 +0000
+
+    Fixed reference to old distribution name, added other modules to load
+    test 
+
+  Change: b8c0a8be2e3be695c7b1e087ee91a89bc27c84fc
+  Author: Torsten Raudssus <github@raudssus.de>
+  Date : 2012-01-17 02:45:56 +0000
+
+    Hups, Data::Dumper probably unrequired ;) 
+
+  Change: 7a3562d96831d9eead9c7ddd188b25de62a34af5
+  Author: Torsten Raudssus <github@raudssus.de>
+  Date : 2012-01-17 02:45:06 +0000
+
+    First working version 
+
+  Change: a154fad7f10a8c08ae06ae6daa0d101f0955058b
+  Author: Torsten Raudssus <github@raudssus.de>
+  Date : 2012-01-16 01:38:42 +0000
+
+    initial commit 
+
+================
+End of releases.
+================

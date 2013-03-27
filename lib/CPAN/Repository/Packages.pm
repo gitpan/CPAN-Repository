@@ -3,7 +3,7 @@ BEGIN {
   $CPAN::Repository::Packages::AUTHORITY = 'cpan:GETTY';
 }
 {
-  $CPAN::Repository::Packages::VERSION = '0.007';
+  $CPAN::Repository::Packages::VERSION = '0.008';
 }
 # ABSTRACT: 02packages
 
@@ -61,6 +61,20 @@ has written_by => (
 	required => 1,
 );
 
+sub get_module {
+	my ( $self, $module ) = @_;
+	return defined $self->modules->{$module}
+		? $self->modules->{$module}->[1]
+		: ();
+}
+
+sub get_module_version {
+	my ( $self, $module ) = @_;
+	return defined $self->modules->{$module}
+		? $self->modules->{$module}->[0]
+		: ();
+}
+
 sub set_module {
 	my ( $self, $module, $version, $path ) = @_;
 	return $self->modules->{$module} = [ $version, $path ];
@@ -114,7 +128,7 @@ sub generate_content {
 	$content .= $self->generate_header_line('Line-Count:',scalar keys %{$self->modules});
 	$content .= $self->generate_header_line('Last-Updated:',DateTime->now->strftime('%a, %e %b %y %T %Z'));
 	$content .= "\n";
-	for (keys %{$self->modules}) {
+	for (sort { $a cmp $b } keys %{$self->modules}) {
 		$content .= sprintf("%-60s %-20s %s\n",$_,$self->modules->{$_}->[0] ? $self->modules->{$_}->[0] : 'undef',$self->modules->{$_}->[1]);
 	}
 	return $content;
@@ -137,7 +151,7 @@ CPAN::Repository::Packages - 02packages
 
 =head1 VERSION
 
-version 0.007
+version 0.008
 
 =head1 SYNOPSIS
 

@@ -3,7 +3,7 @@ BEGIN {
   $CPAN::Repository::Mailrc::AUTHORITY = 'cpan:GETTY';
 }
 {
-  $CPAN::Repository::Mailrc::VERSION = '0.007';
+  $CPAN::Repository::Mailrc::VERSION = '0.008';
 }
 # ABSTRACT: 01mailrc
 
@@ -40,10 +40,17 @@ sub set_alias {
 	return $self;
 }
 
+sub get_alias {
+	my ( $self, $author ) = @_;
+	return defined $self->aliases->{$author}
+		? $self->aliases->{$author}
+		: ();
+}
+
 sub generate_content {
 	my ( $self ) = @_;
 	my $content = "";
-	for (sort keys %{$self->aliases}) {
+	for (sort { $a cmp $b } keys %{$self->aliases}) {
 		$content .= 'alias '.$_.' "'.( $self->aliases->{$_} ? $self->aliases->{$_} : $_ ).'"'."\n";
 	}
 	return $content;
@@ -62,7 +69,7 @@ CPAN::Repository::Mailrc - 01mailrc
 
 =head1 VERSION
 
-version 0.007
+version 0.008
 
 =head1 SYNOPSIS
 

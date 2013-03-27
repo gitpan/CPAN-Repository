@@ -13,6 +13,7 @@ my %WriteMakefileArgs = (
   "AUTHOR" => "Torsten Raudssus <torsten\@raudss.us> L<http://raudss.us/>",
   "BUILD_REQUIRES" => {
     "File::Temp" => "0.22",
+    "Test::LoadAllModules" => "0.021",
     "Test::More" => "0.96"
   },
   "CONFIGURE_REQUIRES" => {
@@ -31,10 +32,9 @@ my %WriteMakefileArgs = (
     "File::Spec::Functions" => "3.33",
     "IO::File" => "1.14",
     "IO::Zlib" => "1.10",
-    "Moo" => "0.009013",
-    "utf8::all" => 0
+    "Moo" => "0.009013"
   },
-  "VERSION" => "0.007",
+  "VERSION" => "0.008",
   "test" => {
     "TESTS" => "t/*.t"
   }

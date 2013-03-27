@@ -9,6 +9,7 @@ dist.ini
 lib/CPAN/Repository.pm
 lib/CPAN/Repository/Mailrc.pm
 lib/CPAN/Repository/Packages.pm
+lib/CPAN/Repository/Perms.pm
 lib/CPAN/Repository/Role/File.pm
 t/00-load.t
 t/10-simple.t

@@ -3,7 +3,7 @@ BEGIN {
   $CPAN::Repository::AUTHORITY = 'cpan:GETTY';
 }
 {
-  $CPAN::Repository::VERSION = '0.007';
+  $CPAN::Repository::VERSION = '0.008';
 }
 # ABSTRACT: API to access a directory which can be served as CPAN repository
 
@@ -12,6 +12,7 @@ use File::Path qw( make_path );
 use File::Spec::Functions ':ALL';
 use CPAN::Repository::Mailrc;
 use CPAN::Repository::Packages;
+use CPAN::Repository::Perms;
 use File::Copy;
 
 our $VERSION ||= '0.0development';
@@ -51,6 +52,9 @@ has mailrc => (
 	is => 'ro',
 	lazy => 1,
 	builder => '_build_mailrc',
+	handles => [qw(
+		get_alias
+	)],
 );
 
 sub _build_mailrc {
@@ -60,10 +64,33 @@ sub _build_mailrc {
 	});
 }
 
+has perms => (
+	is => 'ro',
+	lazy => 1,
+	builder => '_build_perms',
+	handles => [qw(
+		get_perms
+		get_perms_by_userid
+	)],
+);
+
+sub _build_perms {
+	my ( $self ) = @_;
+	return CPAN::Repository::Perms->new({
+		repository_root => $self->real_dir,
+		written_by => $self->written_by,
+	});
+}
+
+
 has packages => (
 	is => 'ro',
 	lazy => 1,
 	builder => '_build_packages',
+	handles => [qw(
+		get_module
+		get_module_version
+	)],
 );
 
 sub _build_packages {
@@ -86,18 +113,31 @@ sub initialize {
 	die "there exist already a repository at ".$self->real_dir if $self->is_initialized;
 	$self->mailrc->save;
 	$self->packages->save;
+	$self->perms->save;
 }
 
 sub add_author_distribution {
-	my ( $self, $author, $distribution_filename ) = @_;
+	my ( $self, $author, $distribution_filename, $path ) = @_;
 	my @fileparts = splitdir( $distribution_filename );
 	my $filename = pop(@fileparts);
+	my $author_path_filename;
 	my $target_dir = $self->mkauthordir($author);
-	my $author_path_filename = catfile( $self->author_path_parts($author), $filename );
-	copy($distribution_filename,catfile( $target_dir, $filename ));
+	if ($path) {
+		my $path_dir = catfile( $self->splitted_dir, $self->authorbase_path_parts, $path );
+		$self->mkdir( $path_dir ) unless -d $path_dir;
+		$author_path_filename = catfile( $path, $filename );
+	} else {
+		$author_path_filename = catfile( $self->author_path_parts($author), $filename );
+	}
+	copy($distribution_filename,catfile( $self->splitted_dir, $self->authorbase_path_parts, $author_path_filename ));
 	$self->packages->add_distribution($author_path_filename)->save;
 	$self->mailrc->set_alias($author)->save unless defined $self->mailrc->aliases->{$author};
 	return catfile( $self->authorbase_path_parts, $self->author_path_parts($author), $filename );
+}
+
+sub set_perms {
+	my $self = shift;
+	$self->perms->set_perms(@_)->save;
 }
 
 sub set_alias {
@@ -166,7 +206,7 @@ CPAN::Repository - API to access a directory which can be served as CPAN reposit
 
 =head1 VERSION
 
-version 0.007
+version 0.008
 
 =head1 SYNOPSIS
 
@@ -180,7 +220,9 @@ version 0.007
   $repo->initialize unless $repo->is_initialized;
   
   $repo->add_author_distribution('AUTHOR','My-Distribution-0.001.tar.gz');
-  $repo->set_alias('AUTHOR','The Author <author@company.org>');
+  $repo->add_author_distribution('AUTHOR2','Other-Dist-0.001.tar.gz','Custom/Own/Path');
+  $repo->set_alias('AUTHOR','The author <author@company.org>');
+  $repo->set_alias('AUTHOR2','The other author <author@company.org>');
   
   my %modules = %{$repo->modules};
   
